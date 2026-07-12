@@ -21,9 +21,16 @@ else
 fi
 
 echo '' >> /etc/apt/sources.list
-#cat /etc/apt/sources.list
+echo "deb http://security.debian.org/debian-security $vVersionCodename-security main contrib non-free" >> /etc/apt/sources.list
 
-rm -fv /etc/apt/sources.list.d/*
+echo '' >> /etc/apt/sources.list
+echo "deb http://deb.debian.org/debian/ $vVersionCodename-updates main contrib non-free" >> /etc/apt/sources.list
+
+echo '' >> /etc/apt/sources.list
+echo "deb http://deb.debian.org/debian/ $vVersionCodename-backports main contrib non-free" >> /etc/apt/sources.list
+
+echo '' >> /etc/apt/sources.list
+cat /etc/apt/sources.list
 
 apt update
 vAPTupdate_return=$?
