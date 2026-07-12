@@ -14,8 +14,6 @@ echo "Debian version number: $vVersionNumber"
 echo 'Cleaning: /etc/apt/sources.list'
 echo '' > /etc/apt/sources.list
 
-echo '' >> /etc/apt/sources.list
-
 rm -fv /etc/apt/sources.list.d/*
 
 apt update
