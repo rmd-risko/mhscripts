@@ -14,7 +14,7 @@ else
   exit $vAPTupdate_return
 fi
 
-./210-mariadb-client_install.sh
+./211-mariadb-client_install.sh
 vClientInstall_return=$?
 if [ $vClientInstall_return -ne 0 ]; then
   exit $vClientInstall_return
