@@ -5,43 +5,44 @@ if [ $EUID -ne 0 ]; then
   exit 1
 fi
 
-apt -y install dbus
+## Get OS variables in file /etc/os-release  
+source /etc/os-release
+echo "Debian version codename: $VERSION_CODENAME"
+echo "Debian version number: $VERSION_ID"
+
+if [ $VERSION_ID -lt 12 ]; then
+  apt -y install apcalc
+else
+  apt -y install calc
+fi
 vAPTinstall_return=$?
 if [ $vAPTinstall_return -ne 0 ]; then
   exit $vAPTinstall_return
 fi
 
-apt -y install sudo adduser passwd
+apt -y install lshw
 vAPTinstall_return=$?
 if [ $vAPTinstall_return -ne 0 ]; then
   exit $vAPTinstall_return
 fi
 
-apt -y install vim
+apt -y install chafa
 vAPTinstall_return=$?
 if [ $vAPTinstall_return -ne 0 ]; then
   exit $vAPTinstall_return
 fi
 
-apt -y install dialog
+if [ $VERSION_ID -lt 13 ]; then
+  apt -y install neofetch
+else
+  apt -y install fastfetch
+fi
 vAPTinstall_return=$?
 if [ $vAPTinstall_return -ne 0 ]; then
   exit $vAPTinstall_return
 fi
 
-apt -y install mc
-vAPTinstall_return=$?
-if [ $vAPTinstall_return -ne 0 ]; then
-  exit $vAPTinstall_return
-fi
-
-apt -y install pv
-vAPTinstall_return=$?
-if [ $vAPTinstall_return -ne 0 ]; then
-  exit $vAPTinstall_return
-fi
-
-apt -y install htop
+apt -y install odt2txt
 vAPTinstall_return=$?
 if [ $vAPTinstall_return -ne 0 ]; then
   exit $vAPTinstall_return
