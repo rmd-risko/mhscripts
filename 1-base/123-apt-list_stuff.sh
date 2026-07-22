@@ -20,15 +20,9 @@ else
   echo "deb http://deb.debian.org/debian $vVersionCodename main non-free non-free-firmware contrib" >> /etc/apt/sources.list
 fi
 
-echo '' >> /etc/apt/sources.list
 echo "deb http://security.debian.org/debian-security $vVersionCodename-security main contrib non-free" >> /etc/apt/sources.list
-
-echo '' >> /etc/apt/sources.list
 echo "deb http://deb.debian.org/debian/ $vVersionCodename-updates main contrib non-free" >> /etc/apt/sources.list
-
-echo '' >> /etc/apt/sources.list
 echo "deb http://deb.debian.org/debian/ $vVersionCodename-backports main contrib non-free" >> /etc/apt/sources.list
-
 echo '' >> /etc/apt/sources.list
 cat /etc/apt/sources.list
 
