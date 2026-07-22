@@ -20,7 +20,17 @@ if [ $vAPTinstall_return -ne 0 ]; then
   exit $vAPTinstall_return
 fi
 
+apt -y install git
+vAPTinstall_return=$?
+if [ $vAPTinstall_return -ne 0 ]; then
+  exit $vAPTinstall_return
+fi
 
+apt -y install crudini
+vAPTinstall_return=$?
+if [ $vAPTinstall_return -ne 0 ]; then
+  exit $vAPTinstall_return
+fi
 
 exit 0
 
