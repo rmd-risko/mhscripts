@@ -5,15 +5,14 @@ if [ $EUID -ne 0 ]; then
   exit 1
 fi
 
+## Get OS variables in file /etc/os-release  
 source /etc/os-release
-vVersionCodename=$VERSION_CODENAME
-echo "Debian version codename: $vVersionCodename"
-vVersionNumber=$VERSION_ID
-echo "Debian version number: $vVersionNumber"
+echo "Debian version codename: $VERSION_CODENAME"
+echo "Debian version number: $VERSION_ID"
 
 echo 'Rewriting: /etc/apt/sources.list'
 echo '' > /etc/apt/sources.list
-echo "deb http://deb.debian.org/debian $vVersionCodename main" >> /etc/apt/sources.list
+echo "deb http://deb.debian.org/debian $VERSION_CODENAME main" >> /etc/apt/sources.list
 echo '' >> /etc/apt/sources.list
 
 rm -fv /etc/apt/sources.list.d/*
