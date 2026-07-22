@@ -5,5 +5,6 @@ if [ $EUID -ne 0 ]; then
   exit 1
 fi
 
-#list and mount all isos in directory...
+
+exit 0
 
