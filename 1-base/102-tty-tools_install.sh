@@ -23,13 +23,7 @@ if [ $vAPTinstall_return -ne 0 ]; then
   exit $vAPTinstall_return
 fi
 
-apt -y install dialog
-vAPTinstall_return=$?
-if [ $vAPTinstall_return -ne 0 ]; then
-  exit $vAPTinstall_return
-fi
-
-apt -y install mc
+apt -y install dialog libncurses-dev
 vAPTinstall_return=$?
 if [ $vAPTinstall_return -ne 0 ]; then
   exit $vAPTinstall_return

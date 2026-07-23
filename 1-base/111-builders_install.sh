@@ -5,50 +5,40 @@ if [ $EUID -ne 0 ]; then
   exit 1
 fi
 
-## Get OS variables in file /etc/os-release  
-source /etc/os-release
-echo "Debian version codename: $VERSION_CODENAME"
-echo "Debian version number: $VERSION_ID"
-
-if [ $VERSION_ID -lt 12 ]; then
-  apt -y install apcalc
+apt update
+vAPTupdate_return=$?
+if [ $vAPTupdate_return -eq 0 ]; then
+  echo 'APT update success...'
 else
-  apt -y install calc
+  echo "Error, APT update return is: $vAPTupdate_return"
+  exit $vAPTupdate_return
 fi
+
+apt -y install build-essential
 vAPTinstall_return=$?
 if [ $vAPTinstall_return -ne 0 ]; then
   exit $vAPTinstall_return
 fi
 
-apt -y install mc
+apt -y install make gcc g++
 vAPTinstall_return=$?
 if [ $vAPTinstall_return -ne 0 ]; then
   exit $vAPTinstall_return
 fi
 
-apt -y install lshw
+apt -y install dkms
 vAPTinstall_return=$?
 if [ $vAPTinstall_return -ne 0 ]; then
   exit $vAPTinstall_return
 fi
 
-apt -y install chafa
+apt -y install kbuild
 vAPTinstall_return=$?
 if [ $vAPTinstall_return -ne 0 ]; then
   exit $vAPTinstall_return
 fi
 
-if [ $VERSION_ID -lt 13 ]; then
-  apt -y install neofetch
-else
-  apt -y install fastfetch
-fi
-vAPTinstall_return=$?
-if [ $vAPTinstall_return -ne 0 ]; then
-  exit $vAPTinstall_return
-fi
-
-apt -y install odt2txt
+apt -y install makeself
 vAPTinstall_return=$?
 if [ $vAPTinstall_return -ne 0 ]; then
   exit $vAPTinstall_return
