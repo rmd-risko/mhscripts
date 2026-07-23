@@ -29,7 +29,7 @@ fi
 python3 -c 'print("Hello Python3!!")'
 vPythonExec_return=$?
 if [ $vPythonExec_return -ne 0 ]; then
-  echo "Error, APT update return is: $vAPTupdate_return"
+  echo "Error, python3 command line return: $vPythonExec_return"
   exit $vPythonExec_return
 fi
 python3 --version
