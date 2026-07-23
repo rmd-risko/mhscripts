@@ -14,7 +14,7 @@ else
   exit $vAPTupdate_return
 fi
 
-apt -y install sqlite3
+apt -y install sqlite3 libsqlite3-dev
 vAPTinstall_return=$?
 if [ $vAPTinstall_return -ne 0 ]; then
   exit $vAPTinstall_return
