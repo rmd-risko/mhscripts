@@ -10,7 +10,7 @@ fi
 docker --version
 vDocker_return=$?
 if [ $vDocker_return -ne 0 ]; then
-  echo "Error, Docker version return: $vAPTupdate_return"
+  echo "Error, Docker version return: $vDocker_return"
   exit $vDocker_return
 fi
 
@@ -21,16 +21,22 @@ echo "Debian version codename: $VERSION_CODENAME"
 docker pull php:$1-apache-$VERSION_CODENAME
 vDocker_return=$?
 if [ $vDocker_return -ne 0 ]; then
-  echo "Error, Docker return: $vAPTupdate_return"
+  echo "Error, Docker return: $vDocker_return"
   exit $vDocker_return
 fi
 
 vContainerName=$(date +"%Y%m%d%H%M%S")
 echo "Container name: $vContainerName"
 
+docker run -p $2:80 -d --name $vContainerName php:$1-apache-$VERSION_CODENAME
+vDocker_return=$?
+if [ $vDocker_return -ne 0 ]; then
+  echo "Error, Docker return: $vDocker_return"
+  exit $vDocker_return
+fi
 
 
-
+echo 'chegou embaixo'
 
 exit 0
 
