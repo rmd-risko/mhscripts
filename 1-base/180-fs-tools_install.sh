@@ -83,6 +83,12 @@ if [ $vAPTinstall_return -ne 0 ]; then
   exit $vAPTinstall_return
 fi
 
+apt -y install zlib1g-dev libbz2-dev
+vAPTinstall_return=$?
+if [ $vAPTinstall_return -ne 0 ]; then
+  exit $vAPTinstall_return
+fi
+
 apt -y install rsync
 vAPTinstall_return=$?;
 if [ $vAPTinstall_return -ne 0 ]; then
