@@ -14,11 +14,22 @@ if [ $vDocker_return -ne 0 ]; then
   exit $vDocker_return
 fi
 
-echo $1
-echo $2
+## Get OS variables in file /etc/os-release  
+source /etc/os-release
+echo "Debian version codename: $VERSION_CODENAME"
 
-#### olhar se os parâmetros estão preenchidos...
-#### 8.4 
+docker pull php:$1-apache-$VERSION_CODENAME
+vDocker_return=$?
+if [ $vDocker_return -ne 0 ]; then
+  echo "Error, Docker return: $vAPTupdate_return"
+  exit $vDocker_return
+fi
+
+vContainerName=$(date +"%Y%m%d%H%M%S")
+echo "Container name: $vContainerName"
+
+
+
 
 
 exit 0
