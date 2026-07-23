@@ -35,8 +35,13 @@ if [ $vDocker_return -ne 0 ]; then
   exit $vDocker_return
 fi
 
-
-echo 'chegou embaixo'
+./284-docker_container-run.sh $vContainerName
+vContainer_return=$?
+if [ $vContainer_return -ne 0 ]; then
+  echo 'Error, container not started.'
+  echo "Docker return: $vContainer_return"
+  exit $vContainer_return
+fi
 
 exit 0
 
