@@ -14,7 +14,7 @@ if [ $vDocker_return -ne 0 ]; then
   exit $vDocker_return
 fi
 
-echo 'chegou embaixo'
-
-exit 0
+docker rm -f $1
+vDocker_return=$?
+exit $vDocker_return
 
