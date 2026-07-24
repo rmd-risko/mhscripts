@@ -25,7 +25,11 @@ if [ $vDocker_return -ne 0 ]; then
   exit $vDocker_return
 fi
 
-vContainerName=$(date +"%Y%m%d%H%M%S")
+if [ -z $3 ]; then
+  vContainerName=$(date +"%Y%m%d%H%M%S")
+else
+  vContainerName=$3
+fi
 echo "Container name: $vContainerName"
 
 docker run -p $2:80 -d --name $vContainerName php:$1-apache-$VERSION_CODENAME
