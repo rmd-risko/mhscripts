@@ -7,13 +7,6 @@ if [ -z $1 ]; then
   exit 1
 fi
 
-docker --version
-vDocker_return=$?
-if [ $vDocker_return -ne 0 ]; then
-  echo "Error, Docker version return: $vDocker_return"
-  exit $vDocker_return
-fi
-
 ./282-docker_container-start.sh $1
 vContainer_return=$?
 if [ $vContainer_return -ne 0 ]; then
