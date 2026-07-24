@@ -3,7 +3,7 @@
 if [ -z $1 ] || [ -z $2 ]; then
   echo 'Parameters not informed.'
   echo 'Use      ./script                          version port'
-  echo 'Example: ./284-docker_php-container-install.sh 8.4 8080'
+  echo 'Example: ./284-docker_php-container-install.sh 8.4 8084'
   exit 1
 fi
 
