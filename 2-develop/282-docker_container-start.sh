@@ -3,7 +3,7 @@
 if [ -z $1 ]; then
   echo 'Parameter with container name not informed.'
   echo 'Use      ./script                      name'
-  echo 'Example: ./282-docker_container-run.sh 20260723093800'
+  echo 'Example: ./282-docker_container-start.sh 20260723234500'
   exit 1
 fi
 
