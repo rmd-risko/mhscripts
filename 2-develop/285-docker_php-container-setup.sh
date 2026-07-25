@@ -13,6 +13,9 @@ if [ $vContainer_return -ne 0 ]; then
   echo 'Error, container not started.'
   echo "Docker return: $vContainer_return"
   exit $vContainer_return
+else
+  echo 'Container started...'
 fi
+
 
 
