@@ -2,8 +2,8 @@
 
 if [ -z $1 ]; then
   echo 'Parameter with container name not informed.'
-  echo 'Use      ./script                      name'
-  echo 'Example: ./282-docker_container-start.sh php84deb12_20260724'
+  echo 'Use      ./script                        name'
+  echo 'Example: ./282-docker-container_start.sh php84deb12_20260724'
   exit 1
 fi
 
