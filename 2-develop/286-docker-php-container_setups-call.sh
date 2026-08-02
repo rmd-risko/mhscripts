@@ -15,8 +15,6 @@ if [ $vContainer_return -ne 0 ]; then
   exit $vContainer_return
 fi
 
-echo 'cu1'
-
 ./284-docker-container_script-exec.sh $1 ../1-base/101-tty-tools-essential_install.sh
 vContainer_return=$?
 if [ $vContainer_return -ne 0 ]; then
@@ -25,6 +23,26 @@ if [ $vContainer_return -ne 0 ]; then
   exit $vContainer_return
 fi
 
+docker exec $1 docker-php-ext-install mysqli
+vContainer_return=$?
+if [ $vContainer_return -ne 0 ]; then
+  echo "Error, failed execute '$2' into container..."
+  echo "Docker return: $vContainer_return"
+  exit $vContainer_return
+else
+  echo "Script successfully executed into '$1'."
+fi
+
+docker stop $1
+./282-docker-container_start.sh $1
+vContainer_return=$?
+if [ $vContainer_return -ne 0 ]; then
+  echo 'Error, container not started.'
+  echo "Docker return: $vContainer_return"
+  exit $vContainer_return
+else
+  echo 'Container started...'
+fi
 
 ./284-docker-container_script-exec.sh $1 287-docker-php-container_internal-setup.sh
 vContainer_return=$?
@@ -34,5 +52,5 @@ if [ $vContainer_return -ne 0 ]; then
   exit $vContainer_return
 fi
 
-echo 'chegou em baixo'
+exit 0
 
