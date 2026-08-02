@@ -7,8 +7,9 @@ fi
 
 ## Get OS variables in file /etc/os-release  
 source /etc/os-release
-echo "Debian version codename: $VERSION_CODENAME"
-echo "Debian version number: $VERSION_ID"
+echo $PRETTY_NAME
+echo "Version codename: $VERSION_CODENAME"
+echo "Version number: $VERSION_ID"
 
 echo 'Rewriting: /etc/apt/sources.list'
 echo '' > /etc/apt/sources.list
