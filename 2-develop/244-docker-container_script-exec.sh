@@ -3,11 +3,11 @@
 if [ -z $1 ] || [ -z $2 ]; then
   echo 'Parameters not informed.'
   echo 'Use      ./script                              container           file'
-  echo 'Example: ./284-docker-container_script-exec.sh php84deb12_20260724 287-docker-php-container_internal-setup.sh'
+  echo 'Example: ./244-docker-container_script-exec.sh php84deb12_20260724 247-docker-php-container_internal-setup.sh'
   exit 1
 fi
 
-./282-docker-container_start.sh $1
+./242-docker-container_start.sh $1
 vContainer_return=$?
 if [ $vContainer_return -ne 0 ]; then
   echo 'Error, container not started.'
