@@ -5,6 +5,6 @@ if [ $EUID -ne 0 ]; then
   exit 1
 fi
 
-#clean apt to offline...
 #list and umount all isos mounted...
+#clean apt to offline... running apt clean
 

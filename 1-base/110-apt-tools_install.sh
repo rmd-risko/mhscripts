@@ -14,13 +14,13 @@ else
   exit $vAPTupdate_return
 fi
 
-apt -y install software-properties-common
+apt -y install apt-transport-https
 vAPTinstall_return=$?
 if [ $vAPTinstall_return -ne 0 ]; then
   exit $vAPTinstall_return
 fi
 
-apt -y install apt-transport-https
+apt -y install software-properties-common
 vAPTinstall_return=$?
 if [ $vAPTinstall_return -ne 0 ]; then
   exit $vAPTinstall_return
