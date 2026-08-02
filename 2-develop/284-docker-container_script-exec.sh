@@ -32,7 +32,7 @@ else
   echo "Script '$2' copied..."
 fi
 
-docker exec $1 /var/www/$2
+docker exec $1 /var/www/$(basename $2)
 vContainer_return=$?
 if [ $vContainer_return -ne 0 ]; then
   echo "Error, failed execute '$2' into container..."

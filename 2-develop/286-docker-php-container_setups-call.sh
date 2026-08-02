@@ -7,14 +7,31 @@ if [ -z $1 ]; then
   exit 1
 fi
 
-./282-docker-container_start.sh $1
+./284-docker-container_script-exec.sh $1 ../1-base/122-apt-list_fill.sh
 vContainer_return=$?
 if [ $vContainer_return -ne 0 ]; then
   echo 'Error, container not started.'
   echo "Docker return: $vContainer_return"
   exit $vContainer_return
-else
-  echo 'Container started...'
+fi
+
+echo 'cu1'
+
+./284-docker-container_script-exec.sh $1 ../1-base/101-tty-tools-essential_install.sh
+vContainer_return=$?
+if [ $vContainer_return -ne 0 ]; then
+  echo 'Error, container not started.'
+  echo "Docker return: $vContainer_return"
+  exit $vContainer_return
+fi
+
+
+./284-docker-container_script-exec.sh $1 287-docker-php-container_internal-setup.sh
+vContainer_return=$?
+if [ $vContainer_return -ne 0 ]; then
+  echo 'Error, container not started.'
+  echo "Docker return: $vContainer_return"
+  exit $vContainer_return
 fi
 
 echo 'chegou em baixo'
