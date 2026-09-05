@@ -10,7 +10,7 @@ if [ ! -e /usr/bin/crudini ]; then
   exit 1
 fi
 
-crudini --set /etc/mysql/mariadb.conf.d/50-server.cnf server skip-grant-tables false
+crudini --del /etc/mysql/mariadb.conf.d/50-server.cnf server skip-grant-tables
 vCrudINI_return=$?
 if [ $vCrudINI_return -eq 0 ]; then
   echo 'Set skip-grant-tables to false in: /etc/mysql/mariadb.conf.d/50-server.cnf'
