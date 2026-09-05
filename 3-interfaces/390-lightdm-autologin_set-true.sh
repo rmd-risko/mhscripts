@@ -12,7 +12,6 @@ fi
 
 crudini --set /etc/lightdm/lightdm.conf Seat:* autologin-user user
 vCrudINI_return=$?
-
 if [ $vCrudINI_return -eq 0 ]; then
   echo 'Set autologin config in: /etc/lightdm/lightdm.conf'
 else

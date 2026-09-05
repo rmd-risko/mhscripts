@@ -14,7 +14,6 @@ fi
 # SDDM enables autologin when the [Autologin] User is set
 crudini --set /etc/sddm.conf Autologin User user
 vCrudINI_return=$?
-
 if [ $vCrudINI_return -eq 0 ]; then
   echo 'Set autologin config in: /etc/sddm.conf'
 else
