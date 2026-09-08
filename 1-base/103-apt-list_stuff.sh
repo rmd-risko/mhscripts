@@ -20,9 +20,13 @@ else
   echo "deb http://deb.debian.org/debian $VERSION_CODENAME main non-free non-free-firmware contrib" >> /etc/apt/sources.list
 fi
 
-echo "deb http://security.debian.org/debian-security $VERSION_CODENAME-security main contrib non-free" >> /etc/apt/sources.list
-echo "deb http://deb.debian.org/debian/ $VERSION_CODENAME-updates main contrib non-free" >> /etc/apt/sources.list
-echo "deb http://deb.debian.org/debian/ $VERSION_CODENAME-backports main contrib non-free" >> /etc/apt/sources.list
+vUpdates_add=$(echo "$1" | tr '[:upper:]' '[:lower:]')
+if [ "$vUpdates_add" == 'true' ]; then
+  echo "deb http://security.debian.org/debian-security $VERSION_CODENAME-security main contrib non-free" >> /etc/apt/sources.list
+  echo "deb http://deb.debian.org/debian/ $VERSION_CODENAME-updates main contrib non-free" >> /etc/apt/sources.list
+  echo "deb http://deb.debian.org/debian/ $VERSION_CODENAME-backports main contrib non-free" >> /etc/apt/sources.list
+fi
+
 echo '' >> /etc/apt/sources.list
 cat /etc/apt/sources.list
 

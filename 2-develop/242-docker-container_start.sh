@@ -20,8 +20,7 @@ if [ $vDocker_return -ne 0 ]; then
   echo "Error, Docker inspect return: $vDocker_return"
   exit $vDocker_return
 fi
-
-if [ $vDocker_inspect == 'true' ]; then
+if [ "$vDocker_inspect" == 'true' ]; then
   echo $1
   exit 0 
 else
