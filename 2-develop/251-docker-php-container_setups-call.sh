@@ -3,7 +3,7 @@
 if [ -z $1 ]; then
   echo 'Parameter with container name not informed.'
   echo 'Use      ./script                                  container'
-  echo 'Example: ./246-docker-php-container_setups-call.sh php84deb12_20260724'
+  echo 'Example: ./251-docker-php-container_setups-call.sh php84deb12_20260724'
   exit 1
 fi
 
@@ -44,7 +44,7 @@ else
   echo 'Container started...'
 fi
 
-./244-docker-container_script-exec.sh $1 247-docker-php-container_internal-setup.sh
+./244-docker-container_script-exec.sh $1 252-docker-php-container_internal-setup.sh
 vContainer_return=$?
 if [ $vContainer_return -ne 0 ]; then
   echo 'Error, container not started.'
