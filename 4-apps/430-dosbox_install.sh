@@ -14,12 +14,11 @@ else
   exit $vAPTupdate_return
 fi
 
-## Get OS variables in file /etc/os-release  
-source /etc/os-release
-echo $PRETTY_NAME
-echo "Version codename: $VERSION_CODENAME"
-echo "Version number: $VERSION_ID"
-
+apt -y install dosbox
+vAPTinstall_return=$?
+if [ $vAPTinstall_return -ne 0 ]; then
+  exit $vAPTinstall_return
+fi
 
 exit 0
 
