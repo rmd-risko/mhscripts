@@ -2,8 +2,10 @@
 
 if [ -z $1 ] || [ -z $2 ]; then
   echo 'Parameters not informed.'
-  echo 'Use      ./script                       repository  port'
-  echo 'Example: ./246-docker-container_pull.sh python:3.11 8085'
+  echo 'Use      ./script                       repository              port container_name'
+  echo 'Example: ./242-docker-container_pull.sh php:8.4-apache-bookworm 8084 php84deb12_20261002'
+# echo 'Example: ./242-docker-container_pull.sh python:3.11             8085 python-test'
+# echo 'Example: ./242-docker-container_pull.sh nginx                   8083 nginx-test'
   exit 1
 fi
 
@@ -35,7 +37,7 @@ if [ $vDocker_return -ne 0 ]; then
   exit $vDocker_return
 fi
 
-./242-docker-container_start.sh $vContainerName
+./248-docker-container_start.sh $vContainerName
 vContainer_return=$?
 if [ $vContainer_return -ne 0 ]; then
   echo 'Error, container not started.'

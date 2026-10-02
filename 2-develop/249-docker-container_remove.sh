@@ -3,7 +3,7 @@
 if [ -z $1 ]; then
   echo 'Parameter with container name not informed.'
   echo 'Use      ./script                         container_name'
-  echo 'Example: ./249-docker-container_remove.sh php84deb12_20260724'
+  echo 'Example: ./249-docker-container_remove.sh php84deb12_20261002'
   exit 1
 fi
 
