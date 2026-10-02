@@ -34,7 +34,7 @@ else
 fi
 
 docker stop $1
-./242-docker-container_start.sh $1
+./248-docker-container_start.sh $1
 vContainer_return=$?
 if [ $vContainer_return -ne 0 ]; then
   echo 'Error, container not started.'
