@@ -7,6 +7,12 @@ if [ ! -e /var/www/html ]; then
   exit 1
 fi
 
+echo '#!/bin/bash' > /var/www/html_delete.sh
+echo '' >> /var/www/html_delete.sh
+echo 'rm -rfv /var/www/html' >> /var/www/html_delete.sh
+echo '' >> /var/www/html_delete.sh
+chmod -v +x /var/www/html_delete.sh
+
 echo '<h1>Hello Apache!!</h1>' > /var/www/html/index.html
 apache2 -v >> /var/www/html/index.html
 
