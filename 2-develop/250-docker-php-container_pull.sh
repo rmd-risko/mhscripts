@@ -2,8 +2,8 @@
 
 if [ -z $1 ] || [ -z $2 ]; then
   echo 'Parameters not informed.'
-  echo 'Use      ./script                               version port'
-  echo 'Example: ./250-docker-php-container_first-create.sh 8.4 8084'
+  echo 'Use      ./script                       version port'
+  echo 'Example: ./250-docker-php-container_pull.sh 8.4 8084'
   exit 1
 fi
 
